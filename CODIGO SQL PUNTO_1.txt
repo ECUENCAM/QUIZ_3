@@ -1,0 +1,11 @@
+SELECT
+productcategory."name" as "Categoria",
+productsubcategory."name" as "Subcategoria",
+product."name" as "Nombre",
+product."productnumber" as "Num_Producto "
+FROM production.productcategory
+INNER JOIN production.productsubcategory
+ON productcategory.productcategoryid = productsubcategory.productcategoryid
+inner join production.product
+on productsubcategory.productsubcategoryid = product.productsubcategoryid;
+

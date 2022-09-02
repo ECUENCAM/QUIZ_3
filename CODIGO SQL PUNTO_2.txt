@@ -1,0 +1,15 @@
+CREATE TABLE T_VENTAS_ESTADOS_UNIDOS AS
+SELECT
+salesorderheader."orderdate" as "Fecha_Venta",
+salesterritory."group" as "Region",
+salesorderheader."subtotal" as "Sub_Total"
+FROM sales.salesterritory
+INNER JOIN sales.salesorderheader
+ON salesorderheader.territoryid = salesterritory.territoryid;
+
+select 
+extract(year from "Fecha_Venta")as "Año",
+extract(month from "Fecha_Venta") as "Mes",
+t_ventas_estados_unidos."Region" as "Region",
+t_ventas_estados_unidos."Sub_Total" as "Sub_Total"
+from public.t_ventas_estados_unidos;

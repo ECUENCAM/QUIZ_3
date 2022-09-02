@@ -1,0 +1,10 @@
+SELECT
+salesreason."name" as "Motivo_Venta",
+salesorderheadersalesreason."salesreasonid" as "Areas_Venta",
+salesorderheader."territoryid" as "Territorio",
+salesorderheader."status" as "Estado"
+FROM sales.salesreason
+INNER JOIN sales.salesorderheadersalesreason
+ON salesorderheadersalesreason.salesreasonid = salesreason.salesreasonid
+inner join sales.salesorderheader
+on salesorderheader.salesorderid = salesorderheadersalesreason.salesorderid;
